@@ -1,7 +1,5 @@
 # Dotfiles for my Hyprland Arch
 
----
-
 ## What i use
 
 - OS: [Arch](https://archlinux.org/)
@@ -11,3 +9,4 @@
 - Terminal: [kitty](https://sw.kovidgoyal.net/kitty/)
 - Shell: [zsh](https://www.zsh.org/)
 - Prompt: [Starship](https://starship.rs/)
+- NightLight: [gammastep](https://gitlab.com/chinstrap/gammastep)
