@@ -10,3 +10,6 @@
 - Shell: [zsh](https://www.zsh.org/)
 - Prompt: [Starship](https://starship.rs/)
 - NightLight: [gammastep](https://gitlab.com/chinstrap/gammastep)
+
+![screenshot1](https://github.com/msyavuz/dotfiles/blob/master/Pictures/Screenshot1.png?raw=true)
+![screenshot1](https://github.com/msyavuz/dotfiles/blob/master/Pictures/Screenshot2.png?raw=true)
