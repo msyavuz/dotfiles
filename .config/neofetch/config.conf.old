@@ -1,17 +1,42 @@
-# https://github.com/chick2d/neofetch-themes
-# Made by https://github.com/chatsagnik
-
+# See this wiki page for more info:
+# https://github.com/dylanaraps/neofetch/wiki/Customizing-Info
 print_info() {
-    prin " "
-    info "$(color 1) OS  " distro
-    info "$(color 2) VER" kernel
-    info "$(color 3) UP " uptime
-    info "$(color 4) PKG" packages
-    info "$(color 5) MEM" memory
-    #prin "$(color 1) $(color 2) $(color 3) $(color 4) $(color 5) $(color 6) $(color 7) $(color 8)"
+    # info title
+    # info underline
+    
+    prin "$(color 1)A R C H | L I N U X"
+    prin "______________________"
+    prin ""
+    info "$(color 1) " users
+    info "$(color 2) " distro
+    info "$(color 3)󰍹 " de
+    # # info "  " wm
+    info "$(color 4) " shell
+    # info "  " term
+	info "$(color 5) " packages
+    info "$(color 6)神" uptime
+    info "$(color 7) " memory
+    info "$(color 10) " cpu
+    info "$(color 9) " gpu
+    # info "" locale
+    # info "" uptime
+    # info "GPU Driver" gpu_driver  # Linux/macOS only
+    # info "CPU Usage" cpu_usage
+    # info "Disk" disk
+    # info "Battery" battery
+    # info "Font" font
+    # info "Song" song
+    # [[ "$player" ]] && prin "Music Player" "$player"
+    # info "Local IP" local_ip
+    # info "Public IP" public_ip
+    # info "Users" users
+    # info "Locale" locale  # This only works on glibc systems.
+
+    # info cols
+    prin ""
+    prin "$(color 1) $(color 2)  $(color 3)   $(color 4)  $(color 5)  $(color 6)  $(color 7)  $(color 8)  $(color 9)"
+    prin ----------------------
 }
-
-
 
 # Title
 
@@ -171,7 +196,7 @@ speed_type="bios_limit"
 # Example:
 # on:    'i7-6500U (4) @ 3.1GHz'
 # off:   'i7-6500U (4) @ 3.100GHz'
-speed_shorthand="off"
+speed_shorthand="on"
 
 # Enable/Disable CPU brand in output.
 #
@@ -259,7 +284,7 @@ gpu_brand="on"
 #
 # integrated:
 #   GPU1: Intel Integrated Graphics
-gpu_type="dedicated"
+gpu_type="all"
 
 
 # Resolution
@@ -323,7 +348,8 @@ gtk3="on"
 # Default: 'http://ident.me'
 # Values:  'url'
 # Flag:    --ip_host
-public_ip_host="http://ident.me"
+#public_ip_host="http://ident.me"
+
 
 # Public IP timeout.
 #
@@ -454,7 +480,7 @@ disk_percent="on"
 # xmms2d
 # xnoise
 # yarock
-music_player="mpd"
+music_player="auto"
 
 # Format to display song information.
 #
@@ -539,7 +565,7 @@ underline_char="-"
 # Example:
 # separator="->":   'Shell-> bash'
 # separator=" =":   'WM = dwm'
-separator=":"
+separator=""
 
 
 # Color Blocks
@@ -684,8 +710,8 @@ image_backend="kitty"
 # NOTE: 'auto' will pick the best image source for whatever image backend is used.
 #       In ascii mode, distro ascii art will be used and in an image mode, your
 #       wallpaper will be used.
-image_source="$HOME/.config/neofetch/praisethesun.jpg"
-
+#image_source="auto"
+image_source="${HOME}/.config/neofetch/images/2b.png"
 
 # Ascii Options
 
@@ -736,7 +762,7 @@ image_source="$HOME/.config/neofetch/praisethesun.jpg"
 #       Slackware, SunOS, LinuxLite, OpenSUSE, Raspbian,
 #       postmarketOS, and Void have a smaller logo variant.
 #       Use '{distro name}_small' to use the small variants.
-ascii_distro="arch_small"
+ascii_distro="auto"
 
 # Ascii Colors
 #
@@ -747,7 +773,7 @@ ascii_distro="arch_small"
 # Example:
 # ascii_colors=(distro)      - Ascii is colored based on Distro colors.
 # ascii_colors=(4 6 1 8 8 6) - Ascii is colored using these colors.
-#ascii_colors=(distro)
+ascii_colors=(distro)
 
 # Bold ascii logo
 # Whether or not to bold the ascii logo.
@@ -755,7 +781,7 @@ ascii_distro="arch_small"
 # Default: 'on'
 # Values:  'on', 'off'
 # Flag:    --ascii_bold
-#ascii_bold="on"
+ascii_bold="on"
 
 
 # Image Options
@@ -768,7 +794,7 @@ ascii_distro="arch_small"
 # Default:  'off'
 # Values:   'on', 'off'
 # Flag:     --loop
-image_loop="off"
+image_loop="on"
 
 # Thumbnail directory
 #
@@ -784,7 +810,7 @@ thumbnail_dir="${XDG_CACHE_HOME:-${HOME}/.cache}/thumbnails/neofetch"
 #
 # See this wiki page to learn about the fit and fill options.
 # https://github.com/dylanaraps/neofetch/wiki/What-is-Waifu-Crop%3F
-crop_mode="fill"
+crop_mode="normal"
 
 # Crop offset
 # Note: Only affects 'normal' crop mode.
@@ -802,14 +828,14 @@ crop_offset="center"
 # Values:  'auto', '00px', '00%', 'none'
 # Flags:   --image_size
 #          --size
-image_size="30%"
+image_size="300px"
 
 # Gap between image and text
 #
 # Default: '3'
 # Values:  'num', '-num'
 # Flag:    --gap
-gap=3
+gap=4
 
 # Image offsets
 # Only works with the w3m backend.
@@ -818,13 +844,23 @@ gap=3
 # Values:  'px'
 # Flags:   --xoffset
 #          --yoffset
-yoffset=1
-xoffset=1
+yoffset=0
+xoffset=0
 
 # Image background color
 # Only works with the w3m backend.
 #
 # Default: ''
 # Values:  'color', 'blue'
-# Flag:    --b
+# Flag:    --bg_color
+background_color=
 
+
+# Misc Options
+
+# Stdout mode
+# Turn off all colors and disables image backend (ASCII/Image).
+# Useful for piping into another command.
+# Default: 'off'
+# Values: 'on', 'off'
+stdout="off"
