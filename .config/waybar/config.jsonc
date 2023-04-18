@@ -7,7 +7,8 @@
     "gtk-layer-shell": true,
     "height": 0,
     "modules-left": [
-        "wlr/workspaces"
+        "wlr/workspaces",
+        "custom/spotify"
     ],
     "modules-center": [
         "hyprland/window"
@@ -22,6 +23,14 @@
     "hyprland/window": {
         "format": "{}",
         "max-length": 50
+    },
+    "custom/spotify": {
+        "exec": "/usr/bin/python3 /home/msyavuz/.config/waybar/scripts/mediaplayer.py --player spotify",
+        "format": "{}  ",
+        "return-type": "json",
+        "on-click": "playerctl play-pause",
+        "on-scroll-up": "playerctl next",
+        "on-scroll-down": "playerctl previous"
     },
     "wlr/workspaces": {
         "on-scroll-up": "hyprctl dispatch workspace e+1",
