@@ -11,7 +11,7 @@
 window#waybar {
   background: rgba(21, 18, 27, 0);
   color: #f5dddd;
-  background: #212127;
+  background: rgba(0, 0, 0, 0.8);
 }
 
 tooltip {
@@ -143,5 +143,11 @@ tooltip {
   margin-left: 10px;
   padding-left: 10px;
   padding-right: 10px;
+  border-radius: 10rem;
+}
+#window {
+  background: #212127;
+  color: #f5dddd;
+  font-weight: 600;
   border-radius: 10rem;
 }
