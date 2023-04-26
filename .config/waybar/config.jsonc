@@ -22,7 +22,8 @@
     ],
     "hyprland/window": {
         "format": "{}",
-        "max-length": 50
+        "max-length": 50,
+        "seperate-outputs": true
     },
     "custom/spotify": {
         "exec": "/usr/bin/python3 /home/msyavuz/.config/waybar/scripts/mediaplayer.py --player spotify",
