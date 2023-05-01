@@ -6,6 +6,8 @@ export ZSH="$HOME/.oh-my-zsh"
 export GTK_THEME=Breeze-Dark
 alias vim=nvim
 alias vi=nvim
+alias nvimc="cd /home/msyavuz/.config/nvim && nvim ."
+alias nvimu="nvim --listen /tmp/nvimsocket"
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
