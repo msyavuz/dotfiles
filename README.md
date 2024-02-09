@@ -24,4 +24,4 @@ git clone https://github.com/msyavuz/dotfiles.git .dotfiles
 stow hypr
 ```
 > [!NOTE]
-> Stow won't work if the files already exists.
+> Stow won't work if the file already exists.
