@@ -18,16 +18,11 @@ alias vi=nvim
 alias vim=nvim
 alias cd=z
 alias ls="eza --icons=always"
-
-
-alias dnfin="sudo dnf install"
-alias dnfse="sudo dnf search"
-
+alias lg="lazygit"
 alias pacin="sudo pacman -S"
 alias pacre="sudo pacman -Rs"
 alias yain="yay -S"
 alias yare="yay -Rs"
-
 alias ta=tmux_attach
 
 
