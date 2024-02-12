@@ -24,6 +24,7 @@ alias pacre="sudo pacman -Rs"
 alias yain="yay -S"
 alias yare="yay -Rs"
 alias ta=tmux_attach
+alias tk="tmux kill-server"
 
 
 export npm_config_prefix="${HOME}/.npm-packages"
