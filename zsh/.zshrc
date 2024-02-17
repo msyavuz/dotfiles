@@ -43,3 +43,10 @@ source "${HOME}/.profile"
 
 antidote load
 eval "$(starship init zsh)"
+
+autoload -Uz compinit
+compinit
+
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
