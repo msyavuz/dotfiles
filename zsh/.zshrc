@@ -26,6 +26,8 @@ alias yare="yay -Rs"
 alias ta=tmux_attach
 alias tk="tmux kill-server"
 
+autoload -Uz compinit
+compinit
 
 export npm_config_prefix="${HOME}/.npm-packages"
 
@@ -37,14 +39,14 @@ export PATH="$PATH:$NPM_PACKAGES/bin"
 # Otherwise, fall back to `manpath` so we can inherit from `/etc/manpath`.
 export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"
 
-autoload -Uz compinit
-compinit
-eval "$(zoxide init zsh)"
-
-source "${HOME}/.profile"
 
 antidote load
 eval "$(starship init zsh)"
 # Load Angular CLI autocompletion.
 source <(ng completion script)
+
+eval "$(zoxide init zsh)"
+
+source "${HOME}/.profile"
+
 
