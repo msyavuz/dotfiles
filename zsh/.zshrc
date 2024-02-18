@@ -37,16 +37,14 @@ export PATH="$PATH:$NPM_PACKAGES/bin"
 # Otherwise, fall back to `manpath` so we can inherit from `/etc/manpath`.
 export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"
 
+autoload -Uz compinit
+compinit
 eval "$(zoxide init zsh)"
 
 source "${HOME}/.profile"
 
 antidote load
 eval "$(starship init zsh)"
-
-autoload -Uz compinit
-compinit
-
-
 # Load Angular CLI autocompletion.
 source <(ng completion script)
+
