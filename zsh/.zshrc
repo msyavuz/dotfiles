@@ -5,6 +5,7 @@ if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
 fi
 export PATH
 
+source /usr/share/nvm/init-nvm.sh
 tmux_attach() {
     if [[ -n $(pgrep tmux) ]]; then
         tmux attach-session
@@ -48,4 +49,3 @@ eval "$(zoxide init zsh)"
 source "${HOME}/.profile"
 
 
-source /usr/share/nvm/init-nvm.sh
