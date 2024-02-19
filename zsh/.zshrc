@@ -29,8 +29,6 @@ alias tk="tmux kill-server"
 autoload -Uz compinit
 compinit
 
-export npm_config_prefix="${HOME}/.npm-packages"
-
 NPM_PACKAGES="${HOME}/.npm-packages"
 
 export PATH="$PATH:$NPM_PACKAGES/bin"
@@ -50,3 +48,4 @@ eval "$(zoxide init zsh)"
 source "${HOME}/.profile"
 
 
+source /usr/share/nvm/init-nvm.sh
