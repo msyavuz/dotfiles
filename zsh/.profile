@@ -9,5 +9,6 @@ export PATH="$HOME/.local/bin/scripts:$PATH"
 
 export PYENV_ROOT="$HOME/.pyenv"
 export OLLAMA_MODELS="$HOME/.ollama-models"
+export PATH="$HOME/.dotnet/tools:$PATH"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
