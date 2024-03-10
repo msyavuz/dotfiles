@@ -5,6 +5,8 @@ export PATH="$HOME/.local/bin:$PATH"
 export QT_QPA_PLATFORMTHEME=qt5ct
 export PATH="$HOME/go/bin:$PATH"
 
+export GTK_USE_PORTAL=0
+
 export PATH="$HOME/.local/bin/scripts:$PATH"
 
 export PYENV_ROOT="$HOME/.pyenv"
