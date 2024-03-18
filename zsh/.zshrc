@@ -1,17 +1,17 @@
 source "$HOME/.antidote/antidote.zsh"
 
 if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
-    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+	PATH="$HOME/.local/bin:$HOME/bin:$PATH"
 fi
 export PATH
 
 source /usr/share/nvm/init-nvm.sh
 tmux_attach() {
-    if [[ -n $(pgrep tmux) ]]; then
-        tmux attach-session
-    else
-        tmux
-    fi
+	if [[ -n $(pgrep tmux) ]]; then
+		tmux attach-session
+	else
+		tmux
+	fi
 }
 
 # Aliases
@@ -38,7 +38,6 @@ export PATH="$PATH:$NPM_PACKAGES/bin"
 # Otherwise, fall back to `manpath` so we can inherit from `/etc/manpath`.
 export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"
 
-
 antidote load
 eval "$(starship init zsh)"
 # Load Angular CLI autocompletion.
@@ -48,4 +47,12 @@ eval "$(zoxide init zsh)"
 
 source "${HOME}/.profile"
 
+# pnpm
+export PNPM_HOME="/home/msyavuz/.local/share/pnpm"
+case ":$PATH:" in
+*":$PNPM_HOME:"*) ;;
+*) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
 
+. /opt/asdf-vm/asdf.sh
