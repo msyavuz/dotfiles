@@ -7,7 +7,7 @@
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.
-set $mod Mod4
+set $mod Mod1
 # Home row direction keys, like vim
 set $left h
 set $down j
@@ -29,6 +29,15 @@ output * bg ~/Pictures/revachol.jpg fill
 #
 output HDMI-A-1 resolution 1920x1080 position 0,0
 output eDP-1 resolution 1920x1080 position 1920,0
+
+# Cosmetic
+
+default_border none
+gaps inner 5
+gaps outer 20
+client.focused #3d59a1  #285577 #ffffff
+client.focused_inactive #3d59a1 #5f676a #ffffff
+
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
@@ -58,6 +67,10 @@ output eDP-1 resolution 1920x1080 position 1920,0
 #
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
+
+input * xkb_layout us,tr
+input * xkb_options grp:caps_toggle
+
 
 ### Key bindings
 #
@@ -135,6 +148,8 @@ output eDP-1 resolution 1920x1080 position 1920,0
     bindsym $mod+Shift+0 move container to workspace number 10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
+
+
 #
 # Layout stuff:
 #
@@ -219,6 +234,12 @@ bar {
 #     }
 # }
 
+workspace 1 output HDMI-A-1
+workspace 2 output HDMI-A-1
+workspace 3 output eDP-1
+workspace 4 output eDP-1
+
+
 exec swaymsg focus output HDMI-A-1
 
 exec /usr/lib/polkit-kde-authentication-agent-1
@@ -227,4 +248,4 @@ exec gammastep
 exec nm-applet
 exec foot
 
-include /etc/sway/config.d/*
+# include /etc/sway/config.d/*

@@ -1,8 +1,8 @@
 {
 	"layer": "top",
 	"position": "bottom", 
-		"modules-left": ["sway/workspaces", "sway/window"],
-		"modules-right": ["mpris","idle_inhibitor","pulseaudio", "battery", "custom/date", "clock", "disk","disk#disk2","sway/language",  "tray"],
+		"modules-left": ["hyprland/workspaces", "hyprland/window"],
+		"modules-right": ["mpris","idle_inhibitor","pulseaudio", "battery", "custom/date", "clock", "disk","disk#disk2","hyprland/language",  "tray"],
 
 		"wlr/workspaces":{
     		"persistent-workspaces": {
@@ -11,7 +11,7 @@
        		}
 		},
 
-		"sway/window": {
+		"hyprland/window": {
 			"seperate-outputs": true
 		},
 	
