@@ -34,6 +34,7 @@ alias yare="yay -Rs"
 alias ta=tmux_attach
 alias tk="tmux kill-server"
 alias shad="pnpm dlx shadcn-ui@latest"
+alias anim="hyprctl keyword animations:enabled"
 
 autoload -Uz compinit && compinit
 
