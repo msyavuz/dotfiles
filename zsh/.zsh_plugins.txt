@@ -1,5 +1,4 @@
 Aloxaf/fzf-tab
-romkatv/powerlevel10k
 zdharma-continuum/fast-syntax-highlighting kind:defer
 
 zsh-users/zsh-completions

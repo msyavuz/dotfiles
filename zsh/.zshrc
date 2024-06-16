@@ -1,10 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 source "$HOME/.antidote/antidote.zsh"
 
 if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
@@ -48,9 +41,6 @@ export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"
 
 antidote load
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
 # Load Angular CLI autocompletion.
 source <(ng completion script)
 
@@ -86,3 +76,9 @@ zstyle ':fzf-tab:*' popup-min-size 100 8
 . /opt/asdf-vm/asdf.sh
 
 eval "$(fzf --zsh)"
+
+# Python virtualenv auto activate
+eval "$(pyenv virtualenv-init -)"
+export SUPERSET_CONFIG_PATH=/home/msyavuz/Repos/apache_secretset/superset_config.py
+
+eval "$(starship init zsh)"
