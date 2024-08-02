@@ -199,6 +199,7 @@ workspace 4 output eDP-1
 exec --no-startup-id autorandr two
 exec --no-startup-id feh --bg-scale ~/Pictures/revachol.jpg
 exec --no-startup-id gammastep
+exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
 
 default_border pixel 0
 default_floating_border pixel 0

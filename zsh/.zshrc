@@ -28,6 +28,7 @@ alias ta=tmux_attach
 alias tk="tmux kill-server"
 alias shad="pnpm dlx shadcn-ui@latest"
 alias anim="hyprctl keyword animations:enabled"
+alias time="/usr/bin/time -f '%E real,%U user,%S sys'"
 
 autoload -Uz compinit && compinit
 
@@ -79,6 +80,6 @@ eval "$(fzf --zsh)"
 
 # Python virtualenv auto activate
 eval "$(pyenv virtualenv-init -)"
-export SUPERSET_CONFIG_PATH=/home/msyavuz/Repos/apache_secretset/superset_config.py
+export SUPERSET_CONFIG_PATH=/home/msyavuz/Work/apache_secretset/superset_config.py
 
 eval "$(starship init zsh)"
