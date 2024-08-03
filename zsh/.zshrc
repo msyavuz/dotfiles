@@ -1,7 +1,7 @@
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-source /home/linuxbrew/.linuxbrew/opt/antidote/share/antidote/antidote.zsh
+source $HOME/.antidote/antidote.zsh
 
 if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
 	PATH="$HOME/.local/bin:$HOME/bin:$PATH"
@@ -85,5 +85,4 @@ eval "$(pyenv virtualenv-init -)"
 export SUPERSET_CONFIG_PATH=/home/msyavuz/Work/apache_secretset/superset_config.py
 
 eval "$(starship init zsh)"
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
