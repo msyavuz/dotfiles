@@ -1,12 +1,15 @@
-source "$HOME/.antidote/antidote.zsh"
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+source /home/linuxbrew/.linuxbrew/opt/antidote/share/antidote/antidote.zsh
 
 if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
 	PATH="$HOME/.local/bin:$HOME/bin:$PATH"
 fi
 export PATH
 
-source /usr/share/nvm/init-nvm.sh
-tmux_attach() {
+# source /usr/share/nvm/init-nvm.sh
+function tmux_attach() {
 	if [[ -n $(pgrep tmux) ]]; then
 		tmux attach-session
 	else
@@ -74,7 +77,6 @@ zstyle ':fzf-tab:complete:z:*' fzf-preview 'eza -1 --icons=always --color=always
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
 zstyle ':fzf-tab:*' popup-min-size 100 8
-. /opt/asdf-vm/asdf.sh
 
 eval "$(fzf --zsh)"
 
@@ -83,3 +85,5 @@ eval "$(pyenv virtualenv-init -)"
 export SUPERSET_CONFIG_PATH=/home/msyavuz/Work/apache_secretset/superset_config.py
 
 eval "$(starship init zsh)"
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+

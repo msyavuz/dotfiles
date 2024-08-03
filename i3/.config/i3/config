@@ -46,7 +46,7 @@ floating_modifier $mod
 
 # move tiling windows via drag & drop by left-clicking into the title bar,
 # or left-clicking anywhere into the window while holding the floating modifier.
-tiling_drag modifier titlebar
+# tiling_drag modifier titlebar
 
 # start a terminal
 bindsym $mod+Return exec alacritty
@@ -55,7 +55,9 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id dmenu_run
+# bindsym $mod+d exec --no-startup-id dmenu_run
+bindsym $mod+d exec --no-startup-id "rofi -show"
+bindsym $mod+Shift+Q exec --no-startup-id "rofi -show power-menu -modi power-menu:rofi-power-menu -theme tokyonight_big1"
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -200,6 +202,7 @@ exec --no-startup-id autorandr two
 exec --no-startup-id feh --bg-scale ~/Pictures/revachol.jpg
 exec --no-startup-id gammastep
 exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id ./local/bin/scripts/monitors.sh
 
 default_border pixel 0
 default_floating_border pixel 0

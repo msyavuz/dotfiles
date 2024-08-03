@@ -16,3 +16,5 @@ command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 . "$HOME/.cargo/env"
 export BROWSER=chromium
+export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
+# export TERM=alacritty
