@@ -198,7 +198,7 @@ workspace 2 output HDMI-1
 workspace 3 output eDP-1
 workspace 4 output eDP-1
 
-exec --no-startup-id autorandr two
+exec --no-startup-id autorandr --change
 exec --no-startup-id feh --bg-scale ~/Pictures/revachol.jpg
 exec --no-startup-id gammastep
 exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
