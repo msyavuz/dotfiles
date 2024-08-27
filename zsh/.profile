@@ -16,5 +16,6 @@ export PATH="$HOME/.mix/escripts:$PATH"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 # . "$HOME/.cargo/env"
-export BROWSER=chromium
+export BROWSER=firefox
+export SUPERSET_CONFIG_PATH="$HOME/Work/apache_secretset/superset_config.py"
 # export TERM=alacritty
