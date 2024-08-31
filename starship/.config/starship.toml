@@ -1,5 +1,5 @@
 palette = "tokyonight"
-command_timeout = 10000
+command_timeout = 1000
 
 [palettes.tokyonight]
 blue = "#7aa2f7"
