@@ -23,12 +23,8 @@ alias vim=nvim
 alias cd=z
 alias ls="eza --icons=always"
 alias lg="lazygit"
-alias pacin="sudo pacman -S"
-alias pacre="sudo pacman -Rs"
-alias yain="yay -S"
-alias yare="yay -Rs"
-alias zin="sudo zypper in"
-alias zre="sudo zypper remove"
+alias dnfin="sudo dnf install"
+alias dnfre="sudo dnf remove"
 alias ta=tmux_attach
 alias tk="tmux kill-server"
 alias shad="pnpm dlx shadcn-ui@latest"

@@ -7,6 +7,7 @@ export QT_QPA_PLATFORMTHEME=qt5ct
 export PATH="$HOME/go/bin:$PATH"
 
 export GTK_USE_PORTAL=0
+export GTK_THEME=Adwaita-dark
 
 export PATH="$HOME/.local/bin/scripts:$PATH"
 

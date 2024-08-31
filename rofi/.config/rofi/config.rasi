@@ -2,7 +2,7 @@ configuration{
     icon-theme: "Papirus-Dark";
     font: "NotoSans Nerd Font";
     show-icons: true;
-    terminal: "foot";
+    terminal: "alacritty";
     drun-display-format: "{icon}{name}";
     disable-history: false;
     sidebar-mode: false;
