@@ -30,6 +30,7 @@ alias tk="tmux kill-server"
 alias shad="pnpm dlx shadcn-ui@latest"
 alias anim="hyprctl keyword animations:enabled"
 alias time="/usr/bin/time -f '%E real,%U user,%S sys'"
+alias unstow="stow -D"
 
 autoload -Uz compinit && compinit
 
