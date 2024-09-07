@@ -12,8 +12,8 @@ bat_charging = "|^| "
 [[block]]
 block = "focused_window"
 [block.format]
-full = " $title.str(max_w:15) |"
-short = " $title.str(max_w:10) |"
+full = " $title.str(max_w:30) |"
+short = " $title.str(max_w:30) |"
 
 [[block]]
 block = "disk_space"
