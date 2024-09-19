@@ -16,6 +16,11 @@ full = " $title.str(max_w:30) |"
 short = " $title.str(max_w:30) |"
 
 [[block]]
+block = "music"
+format = " $icon {$combo.str(max_w:80) $play $next |}"
+player = "spotify"
+
+[[block]]
 block = "disk_space"
 path = "/"
 info_type = "available"
