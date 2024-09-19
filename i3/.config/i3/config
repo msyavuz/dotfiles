@@ -28,7 +28,7 @@ exec --no-startup-id dex --autostart --environment i3
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -i ~/Pictures/disco.png --nofork
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -36,6 +36,7 @@ exec --no-startup-id nm-applet
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
+
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 10%+ && $refresh_i3status
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 10%- && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set Master toggle && $refresh_i3status
@@ -43,6 +44,7 @@ bindsym XF86AudioMute exec --no-startup-id pactl set Master toggle && $refresh_i
 
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
+
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -207,7 +209,9 @@ exec --no-startup-id feh --bg-scale ~/Pictures/revachol.jpg
 exec --no-startup-id gammastep
 exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id ./local/bin/scripts/monitors.sh
+exec_always "setxkbmap -model pc105 -layout us,tr -variant ,, -option grp:caps_toggle"
 
 default_border pixel 0
 default_floating_border pixel 0
+exec i3-msg workspace 1
 
