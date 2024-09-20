@@ -209,7 +209,7 @@ exec --no-startup-id feh --bg-scale ~/Pictures/revachol.jpg
 exec --no-startup-id gammastep
 exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id ./local/bin/scripts/monitors.sh
-exec_always "setxkbmap -model pc105 -layout us,tr -variant ,, -option grp:caps_toggle"
+exec --no-startup-id "setxkbmap -model pc105 -layout us,tr -variant ,, -option grp:caps_toggle"
 
 default_border pixel 0
 default_floating_border pixel 0
