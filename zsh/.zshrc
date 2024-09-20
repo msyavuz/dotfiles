@@ -51,13 +51,6 @@ eval "$(zoxide init zsh)"
 
 source "${HOME}/.profile"
 
-# pnpm
-export PNPM_HOME="/home/msyavuz/.local/share/pnpm"
-case ":$PATH:" in
-*":$PNPM_HOME:"*) ;;
-*) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
 
 HISTSIZE=5000
 HISTFILE=~/.zsh_history
