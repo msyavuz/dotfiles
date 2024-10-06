@@ -17,37 +17,47 @@ short = " $title.str(max_w:30) |"
 
 [[block]]
 block = "music"
-format = " $icon {$combo.str(max_w:80) $play $next |}"
-player = "spotify"
+format = " $icon {$combo.str(max_w:20,rot_interval:0.5) $play $next |}"
+interface_name_exclude = [".*kdeconnect.*", "mpd"]
 
 [[block]]
-block = "disk_space"
-path = "/"
-info_type = "available"
-alert_unit = "GB"
-interval = 20
-warning = 20.0
-alert = 10.0
-format = " $icon root: $available.eng(w:2) "
+block = "taskwarrior"
+interval = 60
+format = " $icon count.eng(w:1) tasks "
+format_singular = " $icon 1 task "
+format_everything_done = " $icon 0 task "
+warning_threshold = 10
+critical_threshold = 20
+[[block.filters]]
+name = "today"
+filter = "+PENDING +OVERDUE or +DUETODAY"
+[[block.filters]]
+name = "all"
+filter = "+PENDING"
 
-[[block]]
-block = "memory"
-format = " $icon $mem_used_percents.eng(w:2) "
-format_alt = " $icon_swap $swap_used_percents.eng(w:2) "
-
-[[block]]
-block = "cpu"
-interval = 1
-format = " $icon $barchart $utilization "
-format_alt = " $icon $frequency{ $boost|} "
-info_cpu = 20
-warning_cpu = 50
-critical_cpu = 90
-
-[[block]]
-block = "docker"
-interval = 2
-format = " $icon $running/$total "
+# [[block]]
+# block = "disk_space"
+# path = "/"
+# info_type = "available"
+# alert_unit = "GB"
+# interval = 20
+# warning = 20.0
+# alert = 10.0
+# format = " $icon root: $available.eng(w:2) "
+#
+# [[block]]
+# block = "memory"
+# format = " $icon $mem_used_percents.eng(w:2) "
+# format_alt = " $icon_swap $swap_used_percents.eng(w:2) "
+#
+# [[block]]
+# block = "cpu"
+# interval = 1
+# format = " $icon $barchart $utilization "
+# format_alt = " $icon $frequency{ $boost|} "
+# info_cpu = 20
+# warning_cpu = 50
+# critical_cpu = 90
 
 [[block]]
 block = "packages"
@@ -55,7 +65,12 @@ package_manager = ["dnf"]
 interval = 1800
 format = " $icon $dnf.eng(w:1) updates available "
 format_singular = " $icon One update available "
-format_up_to_date = " $icon system up to date "
+format_up_to_date = " $icon System up to date "
+
+[[block]]
+block = "docker"
+interval = 2
+format = " $icon $running/$total "
 
 [[block]]
 block = "sound"

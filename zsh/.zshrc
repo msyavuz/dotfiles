@@ -31,6 +31,12 @@ alias shad="pnpm dlx shadcn-ui@latest"
 alias anim="hyprctl keyword animations:enabled"
 alias time="/usr/bin/time -f '%E real,%U user,%S sys'"
 alias unstow="stow -D"
+alias sysen="sudo systemctl enable"
+alias sysdis="sudo systemctl disable"
+alias sysstart="sudo systemctl start"
+alias sysstop="sudo systemctl stop"
+alias dcup="docker compose up"
+alias dcdown="docker compose down"
 
 autoload -Uz compinit && compinit
 
