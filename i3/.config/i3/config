@@ -210,6 +210,7 @@ exec --no-startup-id gammastep
 exec --no-startup-id /usr/bin/lxpolkit
 exec --no-startup-id picom
 exec --no-startup-id ./local/bin/scripts/monitors.sh
+exec --no-startup-id kbdd
 exec --no-startup-id "setxkbmap -model pc105 -layout us,tr -variant ,, -option grp:caps_toggle"
 
 default_border pixel 0
