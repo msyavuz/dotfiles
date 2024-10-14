@@ -60,14 +60,6 @@ filter = "+PENDING"
 # critical_cpu = 90
 
 [[block]]
-block = "packages"
-package_manager = ["dnf"]
-interval = 1800
-format = " $icon $dnf.eng(w:1) updates available "
-format_singular = " $icon One update available "
-format_up_to_date = " $icon System up to date "
-
-[[block]]
 block = "docker"
 interval = 2
 format = " $icon $running/$total "

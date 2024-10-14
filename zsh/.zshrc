@@ -37,12 +37,14 @@ alias sysstart="sudo systemctl start"
 alias sysstop="sudo systemctl stop"
 alias dcup="docker compose up"
 alias dcdown="docker compose down"
+alias zen="~/.local/share/AppImage/ZenBrowser.AppImage"
 
 autoload -Uz compinit && compinit
 
 NPM_PACKAGES="${HOME}/.npm-packages"
 
 export PATH="$PATH:$NPM_PACKAGES/bin"
+export PATH="$PATH:/home/msyavuz/.dotnet/tools"
 
 # Preserve MANPATH if you already defined it somewhere in your config.
 # Otherwise, fall back to `manpath` so we can inherit from `/etc/manpath`.
