@@ -23,7 +23,7 @@ interface_name_exclude = [".*kdeconnect.*", "mpd"]
 [[block]]
 block = "taskwarrior"
 interval = 60
-format = " $icon count.eng(w:1) tasks "
+format = " $icon $count.eng(w:1) tasks "
 format_singular = " $icon 1 task "
 format_everything_done = " $icon 0 task "
 warning_threshold = 10
@@ -32,8 +32,8 @@ critical_threshold = 20
 name = "today"
 filter = "+PENDING +OVERDUE or +DUETODAY"
 [[block.filters]]
-name = "all"
-filter = "+PENDING"
+name = "some-project"
+filter = "project:some-project +PENDING"
 
 # [[block]]
 # block = "disk_space"

@@ -27,7 +27,7 @@ alias dnfin="sudo dnf install"
 alias dnfre="sudo dnf remove"
 alias ta=tmux_attach
 alias tk="tmux kill-server"
-alias shad="pnpm dlx shadcn-ui@latest"
+alias shad="pnpm dlx shadcn@latest"
 alias anim="hyprctl keyword animations:enabled"
 alias time="/usr/bin/time -f '%E real,%U user,%S sys'"
 alias unstow="stow -D"
@@ -38,6 +38,8 @@ alias sysstop="sudo systemctl stop"
 alias dcup="docker compose up"
 alias dcdown="docker compose down"
 alias zen="~/.local/share/AppImage/ZenBrowser.AppImage"
+alias copy="xclip -selection clipboard"
+alias tj="tjournal"
 
 autoload -Uz compinit && compinit
 
@@ -86,3 +88,11 @@ export SUPERSET_CONFIG_PATH=/home/msyavuz/Work/apache_secretset/superset_config.
 
 eval "$(starship init zsh)"
 
+
+# pnpm
+export PNPM_HOME="/home/msyavuz/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
