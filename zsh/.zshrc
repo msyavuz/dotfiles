@@ -37,10 +37,14 @@ alias sysstart="sudo systemctl start"
 alias sysstop="sudo systemctl stop"
 alias dcup="docker compose up"
 alias dcdown="docker compose down"
-alias zen="~/.local/share/AppImage/ZenBrowser.AppImage"
+alias zen="~/Applications/zen_browser.appimage"
 alias copy="xclip -selection clipboard"
 alias tj="tjournal"
+alias superset_backend="superset db upgrade;superset fab create-admin;superset init;superset load-examples"
+alias superset_cyp="superset db upgrade;superset load_test_users;superset load-examples --load-test-data;superset init"
+alias sql="usql"
 
+fpath=(~/.zsh/functions $fpath)
 autoload -Uz compinit && compinit
 
 NPM_PACKAGES="${HOME}/.npm-packages"
@@ -96,3 +100,7 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+eval "$(/usr/bin/mise activate)"
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"

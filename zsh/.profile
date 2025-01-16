@@ -18,4 +18,5 @@ command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 # . "$HOME/.cargo/env"
 export SUPERSET_CONFIG_PATH="$HOME/Work/apache_secretset/superset_config.py"
+export BROWSER="$HOME/Applications/zen_browser.appimage"
 # export TERM=alacritty

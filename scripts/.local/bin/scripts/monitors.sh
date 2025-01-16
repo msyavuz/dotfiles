@@ -8,3 +8,5 @@ else
     # Set eDP-1 as the primary display
     xrandr --output eDP-1 --auto --primary
 fi
+
+feh --bg-scale ~/Pictures/revachol.jpg
