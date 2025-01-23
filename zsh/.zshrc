@@ -104,3 +104,10 @@ esac
 eval "$(/usr/bin/mise activate)"
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+# bun completions
+[ -s "/home/msyavuz/.bun/_bun" ] && source "/home/msyavuz/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
