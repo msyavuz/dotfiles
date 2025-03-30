@@ -10,3 +10,8 @@
 	required = true
 [credential]
 	helper = store
+[http]
+	postBuffer = 157286400
+	maxRequestBuffer = 100M
+[core]
+	compression = 0

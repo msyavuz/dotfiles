@@ -23,6 +23,7 @@ alias vim=nvim
 alias cd=z
 alias ls="eza --icons=always"
 alias lg="lazygit"
+alias lzd="lazydocker"
 alias dnfin="sudo dnf install"
 alias dnfre="sudo dnf remove"
 alias ta=tmux_attach
@@ -41,7 +42,7 @@ alias zen="~/Applications/zen_browser.appimage"
 alias copy="xclip -selection clipboard"
 alias tj="tjournal"
 alias superset_backend="superset db upgrade;superset fab create-admin;superset init;superset load-examples"
-alias superset_cyp="superset db upgrade;superset load_test_users;superset load-examples --load-test-data;superset init"
+alias superset_cyp="superset db upgrade;superset load_test_users;superset load-examples --load-test-data;superset init;superset fab create-admin"
 alias sql="usql"
 
 fpath=(~/.zsh/functions $fpath)
@@ -88,7 +89,7 @@ eval "$(fzf --zsh)"
 
 # Python virtualenv auto activate
 eval "$(pyenv virtualenv-init -)"
-export SUPERSET_CONFIG_PATH=/home/msyavuz/Work/apache_secretset/superset_config.py
+export SUPERSET_CONFIG_PATH=/home/msyavuz/Work/superset0/superset_config.py
 
 eval "$(starship init zsh)"
 
@@ -101,8 +102,6 @@ case ":$PATH:" in
 esac
 # pnpm end
 
-eval "$(/usr/bin/mise activate)"
-
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # bun completions
@@ -111,3 +110,7 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+
+[ -s ~/.luaver/luaver ] && . ~/.luaver/luaver
+

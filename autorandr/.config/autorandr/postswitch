@@ -1,0 +1,4 @@
+#!/bin/bash
+
+feh --bg-scale ~/Pictures/revachol.jpg
+gammastep -x
