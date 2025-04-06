@@ -220,3 +220,4 @@ default_border pixel 0
 default_floating_border pixel 0
 exec i3-msg workspace 1
 
+for_window [class="zoom"] floating enable

@@ -51,7 +51,7 @@ autoload -Uz compinit && compinit
 NPM_PACKAGES="${HOME}/.npm-packages"
 
 export PATH="$PATH:$NPM_PACKAGES/bin"
-export PATH="$PATH:/home/msyavuz/.dotnet/tools"
+export PATH="$PATH:$HOME/.dotnet/tools"
 
 # Preserve MANPATH if you already defined it somewhere in your config.
 # Otherwise, fall back to `manpath` so we can inherit from `/etc/manpath`.
@@ -89,13 +89,13 @@ eval "$(fzf --zsh)"
 
 # Python virtualenv auto activate
 eval "$(pyenv virtualenv-init -)"
-export SUPERSET_CONFIG_PATH=/home/msyavuz/Work/superset0/superset_config.py
+export SUPERSET_CONFIG_PATH=$HOME/Work/superset0/superset_config.py
 
 eval "$(starship init zsh)"
 
 
 # pnpm
-export PNPM_HOME="/home/msyavuz/.local/share/pnpm"
+export PNPM_HOME="$HOME/.local/share/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
@@ -105,12 +105,13 @@ esac
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # bun completions
-[ -s "/home/msyavuz/.bun/_bun" ] && source "/home/msyavuz/.bun/_bun"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
+export NODE_PATH=$NODE_PATH:`npm root -g`
+
 
 [ -s ~/.luaver/luaver ] && . ~/.luaver/luaver
-
