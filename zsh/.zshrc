@@ -44,6 +44,7 @@ alias tj="tjournal"
 alias superset_backend="superset db upgrade;superset fab create-admin;superset init;superset load-examples"
 alias superset_cyp="superset db upgrade;superset load_test_users;superset load-examples --load-test-data;superset init;superset fab create-admin"
 alias sql="usql"
+alias list-wifi="nmcli dev wifi list"
 
 fpath=(~/.zsh/functions $fpath)
 autoload -Uz compinit && compinit
