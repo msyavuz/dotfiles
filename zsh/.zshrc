@@ -43,8 +43,12 @@ alias copy="xclip -selection clipboard"
 alias tj="tjournal"
 alias superset_backend="superset db upgrade;superset fab create-admin;superset init;superset load-examples"
 alias superset_cyp="superset db upgrade;superset load_test_users;superset load-examples --load-test-data;superset init;superset fab create-admin"
+alias remove_node_modules="find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +"
 alias sql="usql"
 alias list-wifi="nmcli dev wifi list"
+alias mailhog="MailHog"
+alias gru="gruyere"
+alias conu="nmcli connection up"
 
 fpath=(~/.zsh/functions $fpath)
 autoload -Uz compinit && compinit
@@ -89,14 +93,14 @@ zstyle ':fzf-tab:*' popup-min-size 100 8
 eval "$(fzf --zsh)"
 
 # Python virtualenv auto activate
-eval "$(pyenv virtualenv-init -)"
+# eval "$(pyenv virtualenv-init -)"
 export SUPERSET_CONFIG_PATH=$HOME/Work/superset0/superset_config.py
 
 eval "$(starship init zsh)"
 
 
 # pnpm
-export PNPM_HOME="$HOME/.local/share/pnpm"
+export PNPM_HOME="/home/msyavuz/.local/share/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
@@ -114,5 +118,29 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 export NODE_PATH=$NODE_PATH:`npm root -g`
 
-
+# luaver
 [ -s ~/.luaver/luaver ] && . ~/.luaver/luaver
+
+# direnv
+eval "$(direnv hook zsh)"
+
+autoload -U add-zsh-hook
+load-nvmrc() {
+  local node_version="$(nvm version)"
+  local nvmrc_path="$(nvm_find_nvmrc)"
+
+  if [ -n "$nvmrc_path" ]; then
+    local nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+
+    if [ "$nvmrc_node_version" = "N/A" ]; then
+      nvm install
+    elif [ "$nvmrc_node_version" != "$node_version" ]; then
+      nvm use
+    fi
+  elif [ "$node_version" != "$(nvm version default)" ]; then
+    echo "Reverting to nvm default version"
+    nvm use default
+  fi
+}
+add-zsh-hook chpwd load-nvmrc
+load-nvmrc

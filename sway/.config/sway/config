@@ -14,7 +14,7 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term foot
+set $term ghostty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
@@ -23,12 +23,12 @@ set $menu dmenu_path | wmenu | xargs swaymsg exec --
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg ~/Pictures/revachol.jpg fill
+output * bg "~/Pictures/revachol.jpg" fill
 #
 # Example configuration:
 #
 output HDMI-1 resolution 1920x1080 position 0,0
-output eDP-1 resolution 1920x1080 position 1920,0
+output eDP-1 resolution 1920x1080 position 1920,0 
 
 # Cosmetic
 
