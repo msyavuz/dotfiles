@@ -14,7 +14,7 @@ window#waybar {
   text-shadow: none;
   transition-duration: 0s;
   color: rgba(217, 216, 216, 1);
-  background-color: transparent;
+  background-color: rgba(26, 27, 39, 0.9);
 }
 
 #workspaces {
@@ -22,7 +22,7 @@ window#waybar {
 }
 
 #workspaces button {
-  padding: 0 8px;
+  padding: 0 2px;
   color: #565f89;
   border: 3px solid rgba(9, 85, 225, 0);
 }
