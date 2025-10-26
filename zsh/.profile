@@ -19,4 +19,5 @@ export ANDROID_HOME="$HOME/Android/Sdk/"
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 export DIRENV_CACHE_DIR="$HOME/.cache/direnv"
+export PATH=$PATH:$HOME/scripts
 # export TERM=alacritty

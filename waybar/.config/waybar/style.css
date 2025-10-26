@@ -1,117 +1,81 @@
-* {
-  border: none;
-  border-radius: 0;
-  font-family: VictorMono Nerd Font;
-  font-weight: 600;
-  font-size: 12px;
-  min-height: 0;
+#waybar {
+  font-family: "Dejavu Sans Mono", Cantarell, Noto Sans, sans-serif;
+  font-size: 14px;
+}
+
+#window {
+  padding: 0 10px;
 }
 
 window#waybar {
-  background: rgba(0, 0, 0, 0);
-  color: #c0caf5;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  text-shadow: none;
+  transition-duration: 0s;
+  color: rgba(217, 216, 216, 1);
+  background: #1a1b26;
 }
 
 #workspaces {
-  /* background-color: #1d202e; */
-  margin: 5px;
-  margin-left: 6px;
-  border-radius: 5px;
-  margin-right: 10px;
+  margin: 0 5px;
 }
 
 #workspaces button {
-  padding: 2px 4px;
-}
-
-#workspaces button.active {
-  color: #24283b;
-  background-color: #7aa2f7;
-  border-radius: 5px;
+  padding: 0 8px;
+  color: #565f89;
+  border: 3px solid rgba(9, 85, 225, 0);
 }
 
 #workspaces button:hover {
-  /* background-color: #7dcfff; */
-  color: #24283b;
-  border-radius: 5px;
+  box-shadow: inherit;
+  background: #1a1b26;
+  border: 3px solid #7aa2f7;
 }
 
-#idle_inhibitor {
-  color: #3d59a1;
-  margin-left: 10px;
-  margin-right: 10px;
+#workspaces button.active {
+  color: #7aa2f7;
 }
 
-#idle_inhibitor.activated {
-  color: #7dcfff;
-}
 
-#clock,
+
+#custom-docker,
+#tray,
+#mode,
 #battery,
+#cpu,
+#memory,
 #pulseaudio,
-#network {
-  padding: 2px 10px;
-  margin: 5px 0px;
+#idle_inhibitor,
+#backlight {
+  margin: 0px 0px 0px 10px;
+  padding: 0 5px;
 }
 
-#clock {
-  color: #7aa2f7;
-  border-radius: 0px 5px 5px 0px;
-  margin-right: 6px;
+
+#battery.warning {
+  color: rgba(255, 210, 4, 1);
 }
 
-#battery {
-  color: #7aa2f7;
+#battery.critical {
+  color: rgba(238, 46, 36, 1);
 }
 
 #battery.charging {
-  color: #7aa2f7;
+  color: rgba(217, 216, 216, 1);
 }
 
-#battery.warning:not(.charging) {
-  color: #f7768e;
-  border-radius: 5px 5px 5px 5px;
+#custom-storage.warning {
+  color: rgba(255, 210, 4, 1);
 }
 
-#pulseaudio {
-  color: #7aa2f7;
+#custom-storage.critical {
+  color: rgba(238, 46, 36, 1);
 }
 
-#disk {
-  color: #7aa2f7;
-  margin: 5px 0;
-  padding: 0 10px;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-  margin-left: 5px;
-}
-
-#disk.disk2 {
-  color: #7aa2f7;
-  margin: 5px 0;
-  padding: 0 10px;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-  border-bottom-left-radius: 0;
-  border-top-left-radius: 0;
-  margin-right: 6px;
-}
-
-#tray {
-  color: #3d59a1;
-  margin: 5px;
-  margin-left: 0px;
-  margin-right: 6px;
-  border-radius: 5px;
-  padding: 0 10px;
-}
-
-#tray > * {
-  color: #3d59a1;
-  padding: 0 2px;
-  margin: 0 2px;
-}
-
-#language {
-  color: #7aa2f7;
+@keyframes blink {
+  to {
+    background-color: #ffffff;
+    color: black;
+  }
 }
