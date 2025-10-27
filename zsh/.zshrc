@@ -49,6 +49,7 @@ alias list-wifi="nmcli dev wifi list"
 alias mailhog="MailHog"
 alias gru="gruyere"
 alias conu="nmcli connection up"
+alias cpn="create-pr-note.sh"
 
 fpath=(~/.zsh/functions $fpath)
 autoload -Uz compinit && compinit

@@ -79,7 +79,12 @@ pr_title=$(fetch_pr_title "$repo" "$pr_number" || echo "PR #$pr_number")
 
 # Create PR note file
 pr_file="$PR_DIR/$pr_number.md"
-cat > "$pr_file" <<EOF
+
+if [ -f "$pr_file" ]; then
+  echo "❗ File already exists: $pr_file — skipping creation."
+else
+  # Create PR note
+  cat > "$pr_file" <<EOF
 # PR ${pr_number}${pr_title:+: $pr_title}
 
 **GitHub:** [$pr_link]($pr_link)
@@ -103,13 +108,12 @@ cat > "$pr_file" <<EOF
 _Created on ${DATE}_
 EOF
 
-# Update tracker
-if ! grep -q "\[\[$pr_number\]\]" "$TRACKER_FILE" 2>/dev/null; then
-  echo "- [ ] [[${pr_number}]] - [GitHub]($pr_link)" >> "$TRACKER_FILE"
-fi
+  echo "✅ Created: $pr_file"
 
-# Output summary
-echo -e "${GREEN}✅ Created:${RESET} $pr_file"
-echo -e "${GREEN}🪶 Added entry to:${RESET} $TRACKER_FILE"
-echo -e "${GREEN}🔗 GitHub:${RESET} $pr_link"
-echo -e "${GREEN}🧭 Obsidian:${RESET} [[${pr_number}]]"
+  # Update tracker only if entry does not already exist
+  mkdir -p "$(dirname "$TRACKER_FILE")"
+  if ! grep -q "\[\[$pr_number\]\]" "$TRACKER_FILE" 2>/dev/null; then
+    echo "- [ ] [[${pr_number}]] - [GitHub]($pr_link)${pr_title:+ - $pr_title}" >> "$TRACKER_FILE"
+    echo "🪶 Added entry to $TRACKER_FILE"
+  fi
+fi
