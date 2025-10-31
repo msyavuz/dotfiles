@@ -92,7 +92,7 @@ else
 ---
 
 ## Review Steps
-- [ ] Check code style and formatting
+- [ ] Check code for repo standards and potential improvements
 - [ ] Verify functionality
 - [ ] Confirm tests and coverage
 - [ ] Review docs and comments

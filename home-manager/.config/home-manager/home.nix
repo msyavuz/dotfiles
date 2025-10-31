@@ -58,5 +58,8 @@
   programs.home-manager.enable = true;
 
   imports = [ ./btop.nix ./rofi.nix ];
-
+  services.vicinae = {
+    enable = true;
+    autoStart = true;
+  };
 }
