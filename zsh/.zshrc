@@ -50,6 +50,7 @@ alias mailhog="MailHog"
 alias gru="gruyere"
 alias conu="nmcli connection up"
 alias cpn="create-pr-note.sh"
+alias icat="kitten icat"
 
 fpath=(~/.zsh/functions $fpath)
 autoload -Uz compinit && compinit
