@@ -146,3 +146,5 @@ load-nvmrc() {
 }
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
+
+fpath+=~/.zfunc; autoload -Uz compinit; compinit
