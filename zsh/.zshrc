@@ -148,3 +148,6 @@ add-zsh-hook chpwd load-nvmrc
 load-nvmrc
 
 fpath+=~/.zfunc; autoload -Uz compinit; compinit
+
+# opencode
+export PATH=/home/msyavuz/.opencode/bin:$PATH
