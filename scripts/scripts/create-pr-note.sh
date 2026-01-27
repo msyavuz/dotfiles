@@ -92,10 +92,14 @@ else
 ---
 
 ## Review Steps
-- [ ] Check code for repo standards and potential improvements
-- [ ] Verify functionality
-- [ ] Confirm tests and coverage
+- [ ] Check code for repo standards (formatting, naming)
 - [ ] Review docs and comments
+- [ ] Confirm tests and coverage
+- [ ] **Check for overcomplexity** - Is the solution unnecessarily complex?
+- [ ] Verify functionality
+- [ ] Check performance implications
+- [ ] Review security considerations
+- [ ] Verify architecture consistency
 - [ ] Ensure no regressions
 
 ---
