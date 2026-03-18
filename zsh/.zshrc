@@ -51,6 +51,7 @@ alias gru="gruyere"
 alias conu="nmcli connection up"
 alias cpn="create-pr-note.sh"
 alias icat="kitten icat"
+alias pcchanged="pre-commit run --files $(git diff-tree --no-commit-id --name-only -r HEAD)"
 
 fpath=(~/.zsh/functions $fpath)
 autoload -Uz compinit && compinit
@@ -151,3 +152,4 @@ fpath+=~/.zfunc; autoload -Uz compinit; compinit
 
 # opencode
 export PATH=/home/msyavuz/.opencode/bin:$PATH
+alias superset-extensions="/home/msyavuz/Work/superset/.venv/bin/superset-extensions"

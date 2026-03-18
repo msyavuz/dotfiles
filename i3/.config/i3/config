@@ -28,7 +28,7 @@ exec --no-startup-id dex --autostart --environment i3
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xautolock -time 30 -locker 'i3lock -i $HOME/Pictures/disco.png --nofork'
+exec --no-startup-id xautolock -time 30000000 -locker 'i3lock -i $HOME/Pictures/disco.png --nofork'
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -211,7 +211,7 @@ workspace 5 output HDMI-1
 exec --no-startup-id autorandr --change
 exec --no-startup-id gammastep
 exec --no-startup-id /usr/bin/lxpolkit
-exec --no-startup-id picom
+# exec --no-startup-id picom
 # exec --no-startup-id home/msyavuz/local/bin/scripts/monitors.sh
 exec --no-startup-id feh --bg-scale ~/Pictures/revachol.jpg
 exec --no-startup-id kbdd
@@ -222,6 +222,7 @@ exec --no-startup-id blueman-applet
 exec --no-startup-id i3-msg "workspace 1; exec ghostty"
 exec --no-startup-id i3-msg "workspace 3; exec slack"
 exec --no-startup-id demergi
+exec --no-startup-id 1pass
 
 default_border pixel 0
 default_floating_border pixel 0
