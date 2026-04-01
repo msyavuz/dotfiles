@@ -51,7 +51,8 @@ alias gru="gruyere"
 alias conu="nmcli connection up"
 alias cpn="create-pr-note.sh"
 alias icat="kitten icat"
-alias pcchanged="pre-commit run --files $(git diff-tree --no-commit-id --name-only -r HEAD)"
+alias pcchanged='pre-commit run --files $(git diff-tree --no-commit-id --name-only -r HEAD)'
+alias pcpr="pre-commit run --from-ref origin/master --to-ref HEAD"
 
 fpath=(~/.zsh/functions $fpath)
 autoload -Uz compinit && compinit
@@ -153,3 +154,5 @@ fpath+=~/.zfunc; autoload -Uz compinit; compinit
 # opencode
 export PATH=/home/msyavuz/.opencode/bin:$PATH
 alias superset-extensions="/home/msyavuz/Work/superset/.venv/bin/superset-extensions"
+export ANDROID_STUDIO_PATH="/home/msyavuz/.local/share/JetBrains/Toolbox/apps/android-studio"
+export JAVA_HOME=/home/msyavuz/.gradle/jdks/eclipse_adoptium-17-amd64-linux.2
