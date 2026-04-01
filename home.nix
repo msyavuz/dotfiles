@@ -26,11 +26,53 @@
     flameshot
     brightnessctl
     xclip
+    ripgrep
+    fd
 
     # Dev tools
     jq
     curl
     usql
+    gnumake
+    cargo
+    uv
+
+    # Neovim
+    neovim
+
+    # LSPs
+    lua-language-server
+    nodePackages.typescript-language-server
+    pyright
+    gopls
+    rust-analyzer
+    nil # nix
+    vscode-langservers-extracted # html/css/json/eslint
+    tailwindcss-language-server
+    nodePackages.bash-language-server
+    yaml-language-server
+    docker-compose-language-service
+    dockerfile-language-server-nodejs
+    emmet-language-server
+    clang-tools # clangd
+    csharp-ls
+    biome
+    zls
+    ansible-language-server
+
+    # Formatters
+    stylua
+    ruff
+    gofumpt
+    gotools # goimports
+    rustfmt
+    nixfmt-rfc-style
+    nodePackages.prettier
+    rubyPackages.standard # standardrb
+
+    # Linters
+    ansible-lint
+    nodePackages.eslint
 
     # Fonts
     noto-fonts
