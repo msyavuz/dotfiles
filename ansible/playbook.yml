@@ -24,7 +24,6 @@
       - ghostty
       - git
       - gtk
-      - hypr
       - i3status-rust
       - kitty
       - p10k

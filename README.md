@@ -23,7 +23,7 @@ git clone https://github.com/msyavuz/dotfiles.git .dotfiles
 
 3. Stow what you like using directory names
 ```bash
-stow hypr
+stow i3
 ```
 > [!NOTE]
 > Stow won't work if the file already exists. So ideal flow is stow first then install the application.

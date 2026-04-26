@@ -29,7 +29,6 @@ alias dnfre="sudo dnf remove"
 alias ta=tmux_attach
 alias tk="tmux kill-server"
 alias shad="pnpm dlx shadcn@latest"
-alias anim="hyprctl keyword animations:enabled"
 alias time="/usr/bin/time -f '%E real,%U user,%S sys'"
 alias unstow="stow -D"
 alias sysen="sudo systemctl enable"
