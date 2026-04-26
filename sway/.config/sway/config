@@ -63,6 +63,7 @@ bindsym $mod+q kill
 bindsym $mod+d exec $menu
 bindsym $mod+Shift+q exec wlogout -p layer-shell
 bindsym $mod+Shift+p exec rofimoji --selector wofi --action copy
+bindsym $mod+Shift+v exec sh -c 'cliphist list | wofi --dmenu | cliphist decode | wl-copy'
 
 # Toggle screenkey-equivalent (wshowkeys)
 bindsym $mod+Shift+k exec sh -c 'pkill wshowkeys || wshowkeys -a top -b 20 -s 16'

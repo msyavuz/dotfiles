@@ -66,6 +66,7 @@ bindsym $mod+q kill
 bindsym $mod+d exec --no-startup-id "rofi -show drun"
 bindsym $mod+Shift+Q exec --no-startup-id "rofi -show power-menu -modi power-menu:rofi-power-menu"
 bindsym $mod+Shift+P exec --no-startup-id "rofi -modi emoji -show emoji"
+bindsym $mod+Shift+V exec --no-startup-id "rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'"
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -215,6 +216,7 @@ exec --no-startup-id /usr/bin/lxpolkit
 # exec --no-startup-id home/msyavuz/local/bin/scripts/monitors.sh
 exec --no-startup-id feh --bg-scale ~/Pictures/revachol.jpg
 exec --no-startup-id kbdd
+exec --no-startup-id greenclip daemon
 exec --no-startup-id "setxkbmap -model pc105 -layout us,tr -variant ,, -option grp:caps_toggle"
 exec --no-startup-id screenkey --start-disabled
 exec --no-startup-id blueman-applet
