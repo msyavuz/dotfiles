@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# Pick a git worktree of the current (or given) repo and open/attach a tmux session for it.
+
+repo=${1:-$(git rev-parse --show-toplevel 2>/dev/null)}
+if [[ -z "$repo" ]]; then
+    echo "tmux-worktreezier: not in a git repo and no path given" >&2
+    exit 1
+fi
+
+# Resolve to the main repo so we list the full worktree set even if invoked from a worktree.
+common_dir=$(git -C "$repo" rev-parse --git-common-dir 2>/dev/null)
+[[ -n "$common_dir" ]] && repo=$(dirname "$(realpath "$common_dir")")
+
+selected=$(git -C "$repo" worktree list --porcelain \
+    | awk '/^worktree /{print $2}' \
+    | fzf --preview 'git -C {} log --oneline -8 2>/dev/null')
+
+[[ -z "$selected" ]] && exit 0
+
+exec tmux-sessionizer "$selected"

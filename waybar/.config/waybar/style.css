@@ -1,6 +1,7 @@
-#waybar {
-  font-family: "Dejavu Sans Mono", Cantarell, Noto Sans, sans-serif;
+* {
+  font-family: "JetBrainsMono Nerd Font", "DejaVu Sans Mono", "Font Awesome 6 Free", "Font Awesome 6 Brands", sans-serif;
   font-size: 14px;
+  min-height: 0;
 }
 
 #window {

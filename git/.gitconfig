@@ -15,3 +15,5 @@
 	maxRequestBuffer = 100M
 [core]
 	compression = 0
+[safe]
+	directory = /home/msyavuz/.agor/worktrees/preset-io/agor-assistant/assistant

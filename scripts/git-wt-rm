@@ -1,0 +1,140 @@
+#!/usr/bin/env bash
+# Remove a worktree, its tmux session, and (optionally) its branch.
+# Usage:
+#   git wt-rm                  # fzf-pick from non-main worktrees
+#   git wt-rm <name|path>      # remove a specific worktree by basename or path
+#   git wt-rm --merged         # remove all worktrees whose branches are merged into the default branch
+#   git wt-rm --merged -y      # skip confirmation
+#   git wt-rm --force ...      # pass --force to `git worktree remove` (for dirty trees)
+
+set -euo pipefail
+
+force_flag=()
+auto_yes=false
+mode=single
+
+while [[ $# -gt 0 ]]; do
+    case $1 in
+        --force|-f) force_flag=(--force); shift;;
+        -y|--yes)   auto_yes=true; shift;;
+        --merged)   mode=merged; shift;;
+        --)         shift; break;;
+        -*)         echo "git wt-rm: unknown flag '$1'" >&2; exit 1;;
+        *)          break;;
+    esac
+done
+
+common_dir=$(git rev-parse --git-common-dir 2>/dev/null) \
+    || { echo "git wt-rm: not in a git repo" >&2; exit 1; }
+main_repo=$(dirname "$(realpath "$common_dir")")
+main_repo_real=$(realpath "$main_repo")
+
+list_others() {
+    git -C "$main_repo" worktree list --porcelain \
+        | sed -n 's/^worktree //p' \
+        | while read -r p; do
+            [[ "$(realpath "$p")" != "$main_repo_real" ]] && echo "$p"
+        done
+}
+
+default_branch() {
+    local d
+    d=$(git -C "$main_repo" symbolic-ref refs/remotes/origin/HEAD 2>/dev/null | sed 's|refs/remotes/origin/||') || true
+    echo "${d:-master}"
+}
+
+is_merged() {
+    local p=$1 b upstream default
+    b=$(git -C "$p" branch --show-current 2>/dev/null) || return 1
+    [[ -z "$b" ]] && return 1
+    default=$(default_branch)
+    # Reachable from origin/<default>?
+    if git -C "$main_repo" merge-base --is-ancestor "$b" "origin/$default" 2>/dev/null; then
+        return 0
+    fi
+    # Upstream gone (likely squash-merged + branch deleted on remote)?
+    upstream=$(git -C "$main_repo" rev-parse --abbrev-ref --symbolic-full-name "$b@{upstream}" 2>/dev/null) || upstream=""
+    if [[ -n "$upstream" ]] && ! git -C "$main_repo" rev-parse --verify "refs/remotes/$upstream" >/dev/null 2>&1; then
+        return 0
+    fi
+    return 1
+}
+
+remove_one() {
+    local p=$1 ans b parent s
+    if [[ "$(realpath "$p")" == "$main_repo_real" ]]; then
+        echo "git wt-rm: refusing to remove main worktree" >&2
+        return 1
+    fi
+    b=$(git -C "$p" branch --show-current 2>/dev/null || true)
+    git -C "$main_repo" worktree remove "${force_flag[@]}" "$p"
+    echo "✓ removed $p"
+    parent=$(dirname "$p")
+    if [[ -d "$parent" && -z "$(ls -A "$parent" 2>/dev/null)" ]]; then
+        rmdir "$parent" 2>/dev/null && echo "✓ removed empty $parent"
+    fi
+    if command -v tmux >/dev/null 2>&1; then
+        for s in "$(basename "$main_repo")_$(basename "$p")" "$(basename "$p")"; do
+            if tmux has-session -t="$s" 2>/dev/null; then
+                tmux kill-session -t "$s" && echo "✓ killed tmux session $s"
+            fi
+        done
+    fi
+    if [[ -n "$b" ]]; then
+        if $auto_yes; then
+            git -C "$main_repo" branch -D "$b" 2>/dev/null && echo "✓ deleted branch $b" || true
+        elif [[ -t 0 ]]; then
+            read -rp "delete branch '$b'? [y/N] " ans
+            if [[ "$ans" == [Yy]* ]]; then
+                git -C "$main_repo" branch -D "$b" && echo "✓ deleted branch $b"
+            fi
+        fi
+    fi
+}
+
+if [[ $mode == merged ]]; then
+    git -C "$main_repo" fetch --prune origin >/dev/null 2>&1 || true
+
+    candidates=()
+    while IFS= read -r p; do
+        is_merged "$p" && candidates+=("$p")
+    done < <(list_others)
+
+    if [[ ${#candidates[@]} -eq 0 ]]; then
+        echo "no merged worktrees to remove"
+        exit 0
+    fi
+
+    echo "merged worktrees (default: $(default_branch)):"
+    for p in "${candidates[@]}"; do
+        b=$(git -C "$p" branch --show-current 2>/dev/null)
+        printf '  %-60s (%s)\n' "$p" "$b"
+    done
+
+    if ! $auto_yes; then
+        read -rp "remove ${#candidates[@]} worktree(s) and their branches? [y/N] " ans
+        [[ "$ans" != [Yy]* ]] && exit 0
+        auto_yes=true
+    fi
+
+    for p in "${candidates[@]}"; do
+        remove_one "$p" || true
+    done
+    exit 0
+fi
+
+# Single mode
+if [[ $# -ge 1 ]]; then
+    if [[ -d "$1" ]]; then
+        selected=$(realpath "$1")
+    else
+        selected=$(list_others | awk -v q="$1" '{ n=split($0,a,"/"); if (a[n] == q) print }' | head -1)
+        [[ -z "$selected" ]] && { echo "git wt-rm: no worktree matches '$1'" >&2; exit 1; }
+    fi
+else
+    selected=$(list_others | fzf --prompt 'remove> ' \
+        --preview 'git -C {} status --short; echo; git -C {} log --oneline -5')
+fi
+
+[[ -z "${selected:-}" ]] && exit 0
+remove_one "$selected"

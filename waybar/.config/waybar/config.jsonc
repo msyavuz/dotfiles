@@ -1,107 +1,215 @@
-{
-  "layer": "top",
-  "position": "bottom",
-  "height": 30,
-  "modules-left": [
-    "hyprland/workspaces",
-    "hyprland/submap",
-    "hyprland/window"
-  ],
-  "modules-center": [
-    "clock"
-  ],
-  "modules-right": [
-    "custom/docker",
-    "pulseaudio",
-    "backlight",
-    "memory",
-    "battery",
-    "tray"
-  ],
-  "custom/docker": {
-    "exec": "docker-bar.sh",
-    "interval": 15,
-    "format": "  {}",
-    "return-type": "json",
-    "class": "docker"
-  },
-  "hyprland/submap": {
-    "format": " {}"
-  },
-  "hyprland/workspaces": {
-    "disable-scroll": true,
-    "all-outputs": false,
-    "disable-markup": false,
-    "format": "{name}"
-  },
-  "tray": {
-    "icon-size": 20,
-    "spacing": 8
-  },
-  "hyprland/window": {
-    "max-length": 60,
-    "tooltip": false
-  },
-  "clock": {
-    "format": "{:%a %d %b - %H:%M}",
-    "tooltip": false
-  },
-  "memory": {
-    "interval": 15,
-    "format": " {used:0.1f}G/{total:0.1f}G",
-    "tooltip": false
-  },
-  "battery": {
-    "format": "{icon} {capacity}%{time}",
-    "format-icons": [
-      "",
-      "",
-      "",
-      "",
-      ""
+[
+  {
+    "name": "primary",
+    "output": "HDMI-A-1",
+    "layer": "top",
+    "position": "bottom",
+    "height": 30,
+    "modules-left": [
+      "sway/workspaces",
+      "sway/mode",
+      "sway/window"
     ],
-    "format-time": " ({H}h{M}m)",
-    "format-charging": "<span font='Font Awesome 5 Free'></span>  <span font='Font Awesome 5 Free 11'>{icon}</span>  {capacity}% - {time}",
-    "format-full": "<span font='Font Awesome 5 Free'></span>  <span font='Font Awesome 5 Free 11'>{icon}</span>  Charged",
-    "interval": 15,
-    "states": {
-      "warning": 25,
-      "critical": 10
+    "modules-center": [
+      "clock"
+    ],
+    "modules-right": [
+      "custom/docker",
+      "pulseaudio",
+      "backlight",
+      "memory",
+      "battery",
+      "tray"
+    ],
+    "custom/docker": {
+      "exec": "docker-bar.sh",
+      "interval": 15,
+      "format": "  {}",
+      "return-type": "json",
+      "class": "docker"
     },
-    "tooltip": false
-  },
-  "pulseaudio": {
-    "format": "<span font='Font Awesome 5 Free 11'>{icon:2}</span>{volume}%",
-    "format-alt": "<span font='Font Awesome 5 Free 11'>{icon:2}</span>{volume}%",
-    "format-alt-click": "click-right",
-    "format-muted": "<span font='Font Awesome 5 Free 11'></span>",
-    "format-icons": {
-      "phone": [
-        " ",
-        " ",
-        " ",
-        " "
+    "sway/mode": {
+      "format": " {}"
+    },
+    "sway/workspaces": {
+      "disable-scroll": true,
+      "all-outputs": false,
+      "disable-markup": false,
+      "format": "{name}"
+    },
+    "tray": {
+      "icon-size": 20,
+      "spacing": 8
+    },
+    "sway/window": {
+      "max-length": 60,
+      "tooltip": false
+    },
+    "clock": {
+      "format": "{:%a %d %b - %H:%M}",
+      "tooltip": false
+    },
+    "memory": {
+      "interval": 15,
+      "format": " {used:0.1f}G/{total:0.1f}G",
+      "tooltip": false
+    },
+    "battery": {
+      "format": "{icon} {capacity}%{time}",
+      "format-icons": [
+        "",
+        "",
+        "",
+        "",
+        ""
       ],
-      "default": [
-        "",
-        "",
-        "",
-        ""
-      ]
+      "format-time": " ({H}h{M}m)",
+      "format-charging": "<span font='Font Awesome 6 Free'></span>  <span font='Font Awesome 6 Free'>{icon}</span>  {capacity}% - {time}",
+      "format-full": "<span font='Font Awesome 6 Free'></span>  <span font='Font Awesome 6 Free'>{icon}</span>  Charged",
+      "interval": 15,
+      "states": {
+        "warning": 25,
+        "critical": 10
+      },
+      "tooltip": false
     },
-    "scroll-step": 1,
-    "on-click": "pavucontrol",
-    "tooltip": false
+    "pulseaudio": {
+      "format": "<span font='Font Awesome 6 Free'>{icon:2}</span>{volume}%",
+      "format-alt": "<span font='Font Awesome 6 Free'>{icon:2}</span>{volume}%",
+      "format-alt-click": "click-right",
+      "format-muted": "<span font='Font Awesome 6 Free'></span>",
+      "format-icons": {
+        "phone": [
+          " ",
+          " ",
+          " ",
+          " "
+        ],
+        "default": [
+          "",
+          "",
+          "",
+          ""
+        ]
+      },
+      "scroll-step": 1,
+      "on-click": "pavucontrol",
+      "tooltip": false
+    },
+    "backlight": {
+      "format": "{icon} {percent}%",
+      "format-alt": "{icon}",
+      "format-alt-click": "click-left",
+      "format-icons": [
+        "",
+        ""
+      ],
+      "on-scroll-up": "brightnessctl set +1%",
+      "on-scroll-down": "brightnessctl set 1%-"
+    }
   },
-  "backlight": {
-    "format": "{icon} {percent}%",
-    "format-alt": "{icon}",
-    "format-alt-click": "click-left",
-    "format-icons": [
-      "",
-      ""
+  {
+    "name": "secondary",
+    "output": "eDP-1",
+    "layer": "top",
+    "position": "bottom",
+    "height": 30,
+    "modules-left": [
+      "sway/workspaces",
+      "sway/mode",
+      "sway/window"
     ],
-    "on-scroll-up": "light -A 1",
-    "on-scroll-down": "light -U 1"
+    "modules-center": [
+      "clock"
+    ],
+    "modules-right": [
+      "custom/docker",
+      "pulseaudio",
+      "backlight",
+      "memory",
+      "battery"
+    ],
+    "custom/docker": {
+      "exec": "docker-bar.sh",
+      "interval": 15,
+      "format": "  {}",
+      "return-type": "json",
+      "class": "docker"
+    },
+    "sway/mode": {
+      "format": " {}"
+    },
+    "sway/workspaces": {
+      "disable-scroll": true,
+      "all-outputs": false,
+      "disable-markup": false,
+      "format": "{name}"
+    },
+    "sway/window": {
+      "max-length": 60,
+      "tooltip": false
+    },
+    "clock": {
+      "format": "{:%a %d %b - %H:%M}",
+      "tooltip": false
+    },
+    "memory": {
+      "interval": 15,
+      "format": " {used:0.1f}G/{total:0.1f}G",
+      "tooltip": false
+    },
+    "battery": {
+      "format": "{icon} {capacity}%{time}",
+      "format-icons": [
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "format-time": " ({H}h{M}m)",
+      "format-charging": "<span font='Font Awesome 6 Free'></span>  <span font='Font Awesome 6 Free'>{icon}</span>  {capacity}% - {time}",
+      "format-full": "<span font='Font Awesome 6 Free'></span>  <span font='Font Awesome 6 Free'>{icon}</span>  Charged",
+      "interval": 15,
+      "states": {
+        "warning": 25,
+        "critical": 10
+      },
+      "tooltip": false
+    },
+    "pulseaudio": {
+      "format": "<span font='Font Awesome 6 Free'>{icon:2}</span>{volume}%",
+      "format-alt": "<span font='Font Awesome 6 Free'>{icon:2}</span>{volume}%",
+      "format-alt-click": "click-right",
+      "format-muted": "<span font='Font Awesome 6 Free'></span>",
+      "format-icons": {
+        "phone": [
+          " ",
+          " ",
+          " ",
+          " "
+        ],
+        "default": [
+          "",
+          "",
+          "",
+          ""
+        ]
+      },
+      "scroll-step": 1,
+      "on-click": "pavucontrol",
+      "tooltip": false
+    },
+    "backlight": {
+      "format": "{icon} {percent}%",
+      "format-alt": "{icon}",
+      "format-alt-click": "click-left",
+      "format-icons": [
+        "",
+        ""
+      ],
+      "on-scroll-up": "brightnessctl set +1%",
+      "on-scroll-down": "brightnessctl set 1%-"
+    }
   }
-}
+]

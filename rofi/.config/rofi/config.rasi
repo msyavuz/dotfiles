@@ -1,0 +1,24 @@
+configuration {
+    disable-history: false;
+    drun-display-format: "{icon}{name}";
+    font: "NotoSans Nerd Font";
+    icon-theme: "Papirus-Dark";
+    kb-accept-entry: "Control+z,Control+y,Return,KP_Enter";
+    kb-mode-complete: "Control+o";
+    kb-move-char-back: "Control+b";
+    kb-move-char-forward: "Control+f";
+    kb-remove-char-back: "BackSpace";
+    kb-remove-to-eol: "";
+    kb-row-down: "Down,Control+j";
+    kb-row-left: "Left,Control+h";
+    kb-row-right: "Right,Control+l";
+    kb-row-up: "Up,Control+k";
+    location: 0;
+    monitor: -4;
+    show-icons: true;
+    sidebar-mode: false;
+    terminal: "ghostty";
+    xoffset: 0;
+    yoffset: 0;
+}
+@theme "custom"

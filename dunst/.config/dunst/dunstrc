@@ -4,18 +4,23 @@
 [global]
     frame_width = 0
     corner_radius = 5
+    monitor = 1
+    follow = mouse
 
 [urgency_low]
     background = "#1a1b26"
     foreground = "#7aa2f7"
     frame_color = "#7aa2f7"
+    timeout = 5
 
 [urgency_normal]
     background = "#1a1b26"
     foreground = "#7aa2f7"
     frame_color = "#7aa2f7"
+    timeout = 8
 
 [urgency_critical]
     background = "#292e42"
     foreground = "#db4b4b"
     frame_color = "#db4b4b"
+    timeout = 0

@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+# Create a structured worktree under $WORKTREE_ROOT/<repo>/<name>.
+# Usage:
+#   git wt-add <name>                  # new branch <name> off current HEAD
+#   git wt-add <name> <branch>         # check out existing <branch>
+#   git wt-add <name> -b <new-branch>  # create new branch with custom name
+# Override the root via WORKTREE_ROOT (default: ~/Work/worktrees).
+#
+# If the main repo has an untracked .envrc, copy it into the new worktree
+# and run `direnv allow` so direnv layouts (e.g. `layout uv`) take effect on cd.
+
+set -euo pipefail
+
+if [[ $# -lt 1 ]]; then
+    echo "usage: git wt-add <name> [<branch>|-b <new-branch>]" >&2
+    exit 1
+fi
+
+name=$1
+shift
+
+common_dir=$(git rev-parse --git-common-dir 2>/dev/null) \
+    || { echo "git wt-add: not in a git repo" >&2; exit 1; }
+main_repo=$(dirname "$(realpath "$common_dir")")
+repo_name=$(basename "$main_repo")
+
+target_root="${WORKTREE_ROOT:-$HOME/Work/worktrees}"
+target_dir="$target_root/$repo_name/$name"
+
+mkdir -p "$(dirname "$target_dir")"
+git -C "$main_repo" worktree add "$target_dir" "$@"
+
+# Carry over .envrc from the main repo if present and not already in the worktree.
+if [[ -f "$main_repo/.envrc" && ! -f "$target_dir/.envrc" ]]; then
+    cp "$main_repo/.envrc" "$target_dir/.envrc"
+    if command -v direnv >/dev/null 2>&1; then
+        direnv allow "$target_dir" >/dev/null 2>&1 || true
+        echo "→ .envrc copied; direnv allowed"
+    else
+        echo "→ .envrc copied (direnv not on PATH; run \`direnv allow\` yourself)"
+    fi
+fi
+
+echo "→ $target_dir"
+
+if [[ -n "${TMUX:-}" ]] && command -v tmux-sessionizer >/dev/null 2>&1; then
+    exec tmux-sessionizer "$target_dir"
+fi

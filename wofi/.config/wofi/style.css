@@ -1,0 +1,71 @@
+/* Tokyonight-matching, minimal */
+
+* {
+    font-family: "JetBrainsMono Nerd Font", "DejaVu Sans Mono", sans-serif;
+    font-size: 16px;
+}
+
+window {
+    margin: 0;
+    padding: 0;
+    background-color: rgba(36, 40, 59, 0.94);
+    border: none;
+    border-radius: 6px;
+    color: #c0caf5;
+}
+
+#input {
+    margin: 6px;
+    padding: 6px 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #1a1b26;
+    color: #c0caf5;
+    caret-color: #7aa2f7;
+}
+
+#input:focus {
+    outline: none;
+}
+
+#outer-box {
+    margin: 0;
+    padding: 4px;
+}
+
+#scroll,
+#inner-box {
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+}
+
+#text {
+    margin: 0;
+    padding: 0 4px;
+    color: #c0caf5;
+}
+
+#img {
+    margin-right: 6px;
+}
+
+#entry {
+    padding: 8px 12px;
+    margin: 2px 4px;
+    border-radius: 4px;
+    background-color: transparent;
+}
+
+#entry:selected {
+    background-color: #9274ca;
+    color: #1a1b26;
+}
+
+#entry:selected #text {
+    color: #1a1b26;
+}
+
+#unselected {
+    color: #a9b1d6;
+}
